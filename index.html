@@ -1,349 +1,945 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohcin Mekhfioui</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071829">
+  <meta name="description" content="Dr. Mohcin Mekhfioui is an embedded systems researcher working on embedded AI, FPGA acceleration, biomedical signal processing, IoT and intelligent electronic systems.">
+  <meta name="author" content="Mohcin Mekhfioui">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dr. Mohcin Mekhfioui | Embedded Systems Researcher">
+  <meta property="og:description" content="Research, publications, projects and academic experience in embedded AI, FPGA, biomedical signal processing and IoT.">
+  <meta property="og:url" content="https://mekhfioui.github.io/">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="https://mekhfioui.github.io/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23071829'/%3E%3Cpath d='M15 44V20h6l11 15 11-15h6v24h-7V31L32 44 22 31v13z' fill='%235de4d3'/%3E%3C/svg%3E">
+  <title>Dr. Mohcin Mekhfioui | Embedded Systems Researcher</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root {
+      --ink: #0b1f33;
+      --ink-soft: #40566c;
+      --navy: #071829;
+      --navy-2: #0d2841;
+      --paper: #ffffff;
+      --mist: #f3f7f9;
+      --line: #dce6ea;
+      --cyan: #18b7ad;
+      --cyan-bright: #5de4d3;
+      --blue: #2e6fce;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --shadow-sm: 0 12px 32px rgba(7, 24, 41, .08);
+      --shadow-lg: 0 28px 80px rgba(2, 18, 34, .24);
+      --radius: 24px;
+      --max: 1180px;
+    }
 
-<!--
-  COMMENT PERSONNALISER CE FICHIER
-  =================================
-  1. Cherche tous les textes entre crochets [comme ceci] et remplace-les par tes vraies infos.
-  2. PHOTO : remplace le cercle placeholder dans #hero-photo par une vraie image.
-     - Ajoute ton fichier "photo.jpg" à la racine du dépôt (à côté d'index.html)
-     - Remplace <div class="photo-placeholder">MM</div> par <img src="photo.jpg" alt="Mohcin Mekhfioui">
-  3. EXPÉRIENCE / FORMATION : duplique un bloc <div class="entry"> pour ajouter une ligne.
-  4. PROJETS : duplique un bloc <article class="project"> pour ajouter un projet.
-  5. Liens de contact (mailto, tel, LinkedIn, GitHub) : remplace les href="#".
--->
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.menu-open { overflow: hidden; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { color: inherit; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { line-height: 1.12; }
+    [hidden] { display: none !important; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    ::selection { background: rgba(93, 228, 211, .33); color: var(--navy); }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    .skip-link {
+      position: fixed;
+      z-index: 1000;
+      top: 10px;
+      left: 10px;
+      transform: translateY(-140%);
+      padding: .65rem 1rem;
+      border-radius: 8px;
+      background: var(--cyan-bright);
+      color: var(--navy);
+      font-weight: 800;
+    }
+    .skip-link:focus { transform: translateY(0); }
 
-<style>
-  :root {
-    --bg: #F7F8FA;
-    --panel: #EEF1F6;
-    --ink: #111826;
-    --ink-soft: #565F73;
-    --accent: #2C4770;
-    --accent-soft: #4C6690;
-    --line: #DCE1EA;
-    --max: 880px;
+    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .section { padding: 108px 0; }
+    .section-muted { background: var(--mist); }
+    .section-dark { background: var(--navy); color: #fff; }
+    .section-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      color: var(--cyan);
+      font-size: .8rem;
+      font-weight: 850;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .section-kicker::before { content: ""; width: 34px; height: 2px; background: currentColor; }
+    .section-dark .section-kicker { color: var(--cyan-bright); }
+    .section-heading { max-width: 760px; margin-bottom: 48px; }
+    .section-heading h2 {
+      margin-bottom: 18px;
+      font-family: var(--serif);
+      font-size: clamp(2.25rem, 4vw, 4.15rem);
+      font-weight: 500;
+      letter-spacing: -.045em;
+    }
+    .section-heading p { max-width: 680px; margin-bottom: 0; color: var(--ink-soft); font-size: 1.08rem; }
+    .section-dark .section-heading p { color: #aebfcd; }
+
+    .site-header {
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      color: #fff;
+      transition: background .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .site-header.scrolled {
+      border-color: rgba(255,255,255,.08);
+      background: rgba(7,24,41,.94);
+      box-shadow: 0 10px 34px rgba(0,0,0,.16);
+      backdrop-filter: blur(14px);
+    }
+    .nav-wrap { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 820; letter-spacing: -.02em; }
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid rgba(93,228,211,.5);
+      border-radius: 12px;
+      background: rgba(93,228,211,.08);
+      color: var(--cyan-bright);
+      font-size: .84rem;
+      letter-spacing: -.04em;
+    }
+    .site-nav { display: flex; align-items: center; gap: 28px; }
+    .site-nav a {
+      position: relative;
+      color: #c6d2dc;
+      font-size: .88rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+    .site-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -9px;
+      width: 100%;
+      height: 2px;
+      background: var(--cyan-bright);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .2s ease;
+    }
+    .site-nav a:hover, .site-nav a.active { color: #fff; }
+    .site-nav a:hover::after, .site-nav a.active::after { transform: scaleX(1); }
+    .nav-cta {
+      padding: .7rem 1rem;
+      border: 1px solid rgba(93,228,211,.48);
+      border-radius: 999px;
+      color: var(--cyan-bright) !important;
+    }
+    .nav-cta::after { display: none; }
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 12px;
+      background: transparent;
+      cursor: pointer;
+    }
+    .nav-toggle span { display: block; width: 20px; height: 2px; margin: 5px auto; background: #fff; transition: .2s ease; }
+
+    .hero {
+      position: relative;
+      min-height: 780px;
+      padding: 152px 0 96px;
+      overflow: hidden;
+      color: #fff;
+      background:
+        radial-gradient(circle at 78% 20%, rgba(46,111,206,.32), transparent 34%),
+        radial-gradient(circle at 18% 75%, rgba(24,183,173,.18), transparent 34%),
+        var(--navy);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .13;
+      background-image:
+        linear-gradient(rgba(255,255,255,.16) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.16) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black, transparent 84%);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -9vw;
+      bottom: -36%;
+      width: 46vw;
+      aspect-ratio: 1;
+      border: 1px solid rgba(93,228,211,.18);
+      border-radius: 50%;
+      box-shadow: 0 0 0 90px rgba(93,228,211,.025), 0 0 0 180px rgba(93,228,211,.018);
+    }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.28fr) minmax(320px, .72fr); align-items: center; gap: 80px; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      color: var(--cyan-bright);
+      font-size: .82rem;
+      font-weight: 850;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .hero-eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 6px rgba(93,228,211,.12); }
+    .hero h1 {
+      max-width: 800px;
+      margin-bottom: 22px;
+      font-family: var(--serif);
+      font-size: clamp(3.4rem, 7.2vw, 6.8rem);
+      font-weight: 500;
+      letter-spacing: -.06em;
+    }
+    .hero h1 span { display: block; color: var(--cyan-bright); }
+    .hero-role { max-width: 720px; margin-bottom: 20px; color: #e9f1f6; font-size: clamp(1.18rem, 2vw, 1.52rem); font-weight: 690; line-height: 1.45; }
+    .hero-intro { max-width: 690px; margin-bottom: 34px; color: #acbdca; font-size: 1.03rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 34px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: .82rem 1.28rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: .9rem;
+      font-weight: 820;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: var(--cyan-bright); color: var(--navy); box-shadow: 0 14px 34px rgba(93,228,211,.16); }
+    .button-primary:hover { box-shadow: 0 18px 42px rgba(93,228,211,.23); }
+    .button-ghost { border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.045); color: #fff; }
+    .button-ghost:hover { background: rgba(255,255,255,.1); }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 22px; }
+    .hero-links a { color: #bfd0db; font-size: .87rem; font-weight: 720; }
+    .hero-links a:hover { color: var(--cyan-bright); }
+    .hero-portrait { position: relative; justify-self: end; width: min(100%, 390px); }
+    .portrait-frame {
+      position: relative;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 32px;
+      background: linear-gradient(145deg, rgba(255,255,255,.15), rgba(255,255,255,.04));
+      box-shadow: var(--shadow-lg);
+      transform: rotate(1.5deg);
+    }
+    .portrait-frame::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 38px -26px -26px 38px;
+      border: 1px solid rgba(93,228,211,.35);
+      border-radius: 30px;
+    }
+    .portrait-frame img { width: 100%; aspect-ratio: .84; object-fit: cover; object-position: center 26%; border-radius: 22px; background: #f4f6f7; }
+    .portrait-card {
+      position: absolute;
+      right: -34px;
+      bottom: 28px;
+      width: 238px;
+      padding: 18px 20px;
+      border: 1px solid rgba(93,228,211,.24);
+      border-radius: 18px;
+      background: rgba(7,24,41,.91);
+      box-shadow: 0 18px 45px rgba(0,0,0,.24);
+      backdrop-filter: blur(12px);
+    }
+    .portrait-card span { display: block; color: var(--cyan-bright); font-size: .72rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+    .portrait-card strong { display: block; margin-top: 5px; font-size: .92rem; line-height: 1.4; }
+
+    .metrics { position: relative; z-index: 2; margin-top: -42px; }
+    .metrics-grid { display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: var(--shadow-sm); }
+    .metric { padding: 26px 28px; border-right: 1px solid var(--line); }
+    .metric:last-child { border-right: 0; }
+    .metric strong { display: block; margin-bottom: 2px; color: var(--navy); font-family: var(--serif); font-size: 1.72rem; font-weight: 600; letter-spacing: -.035em; }
+    .metric span { color: var(--ink-soft); font-size: .78rem; font-weight: 780; letter-spacing: .06em; text-transform: uppercase; }
+
+    .about-grid { display: grid; grid-template-columns: .78fr 1.22fr; gap: 82px; align-items: start; }
+    .about-aside { position: sticky; top: 110px; }
+    .about-aside h2 { margin-bottom: 24px; font-family: var(--serif); font-size: clamp(2.35rem, 4vw, 4.25rem); font-weight: 500; letter-spacing: -.045em; }
+    .about-aside p { color: var(--ink-soft); }
+    .about-copy > p { margin-bottom: 26px; color: var(--ink-soft); font-size: 1.06rem; }
+    .about-copy > p:first-child { color: var(--ink); font-family: var(--serif); font-size: 1.48rem; line-height: 1.55; }
+    .focus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 34px; }
+    .focus-card { padding: 26px; border: 1px solid var(--line); border-radius: 18px; background: #fff; transition: transform .2s ease, box-shadow .2s ease; }
+    .focus-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
+    .focus-index { display: inline-grid; width: 34px; height: 34px; margin-bottom: 22px; place-items: center; border-radius: 9px; background: rgba(24,183,173,.1); color: #0a8f88; font-size: .74rem; font-weight: 900; }
+    .focus-card h3 { margin-bottom: 9px; font-size: 1.02rem; }
+    .focus-card p { margin-bottom: 0; color: var(--ink-soft); font-size: .9rem; line-height: 1.62; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 26px; }
+    .tag { padding: .48rem .76rem; border: 1px solid var(--line); border-radius: 999px; background: var(--mist); color: #294459; font-size: .78rem; font-weight: 720; }
+
+    .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .research-card {
+      position: relative;
+      min-height: 280px;
+      padding: 30px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius);
+      background: linear-gradient(155deg, rgba(255,255,255,.08), rgba(255,255,255,.025));
+    }
+    .research-card::after { content: ""; position: absolute; right: -55px; bottom: -55px; width: 130px; height: 130px; border: 1px solid rgba(93,228,211,.18); border-radius: 50%; }
+    .research-icon { display: grid; width: 50px; height: 50px; margin-bottom: 48px; place-items: center; border-radius: 14px; background: rgba(93,228,211,.11); color: var(--cyan-bright); }
+    .research-icon svg { width: 26px; height: 26px; }
+    .research-card h3 { margin-bottom: 12px; font-size: 1.2rem; }
+    .research-card p { margin-bottom: 0; color: #aebfcd; font-size: .93rem; line-height: 1.65; }
+
+    .timeline { position: relative; max-width: 960px; }
+    .timeline::before { content: ""; position: absolute; top: 12px; bottom: 12px; left: 126px; width: 1px; background: var(--line); }
+    .timeline-item { display: grid; grid-template-columns: 102px 1fr; gap: 54px; padding-bottom: 44px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-date { position: relative; padding-top: 2px; color: var(--cyan); font-size: .86rem; font-weight: 850; line-height: 1.4; }
+    .timeline-date::after { content: ""; position: absolute; top: 8px; right: -31px; width: 11px; height: 11px; border: 3px solid #fff; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 1px var(--cyan); }
+    .timeline-content { padding-bottom: 34px; border-bottom: 1px solid var(--line); }
+    .timeline-item:last-child .timeline-content { padding-bottom: 0; border-bottom: 0; }
+    .timeline-content h3 { margin-bottom: 7px; font-size: 1.25rem; }
+    .timeline-org { margin-bottom: 13px; color: var(--blue); font-size: .9rem; font-weight: 800; }
+    .timeline-content p { margin-bottom: 0; color: var(--ink-soft); }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project-card { display: flex; min-height: 240px; flex-direction: column; padding: 28px; border: 1px solid var(--line); border-radius: 20px; background: #fff; }
+    .project-card:hover { border-color: rgba(24,183,173,.55); box-shadow: var(--shadow-sm); }
+    .project-number { margin-bottom: 42px; color: var(--cyan); font-family: var(--serif); font-size: 1.05rem; font-weight: 700; }
+    .project-card h3 { margin-bottom: 12px; font-size: 1.12rem; }
+    .project-card p { margin-bottom: 22px; color: var(--ink-soft); font-size: .9rem; line-height: 1.62; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; }
+    .project-tags span { color: #5b6e7f; font-size: .72rem; font-weight: 780; letter-spacing: .04em; text-transform: uppercase; }
+    .project-tags span + span::before { content: "·"; margin-right: 7px; color: var(--cyan); }
+
+    .publication-tools { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 32px; }
+    .filter-group { display: flex; flex-wrap: wrap; gap: 8px; }
+    .filter-button { padding: .55rem .85rem; border: 1px solid var(--line); border-radius: 999px; background: #fff; cursor: pointer; color: var(--ink-soft); font-size: .8rem; font-weight: 800; }
+    .filter-button:hover, .filter-button[aria-pressed="true"] { border-color: var(--navy); background: var(--navy); color: #fff; }
+    .publication-search { position: relative; width: min(100%, 320px); }
+    .publication-search svg { position: absolute; top: 50%; left: 15px; width: 18px; height: 18px; transform: translateY(-50%); color: #6f8292; pointer-events: none; }
+    .publication-search input { width: 100%; min-height: 44px; padding: .65rem 1rem .65rem 42px; border: 1px solid var(--line); border-radius: 999px; outline: 0; background: #fff; color: var(--ink); }
+    .publication-search input:focus { border-color: var(--cyan); box-shadow: 0 0 0 4px rgba(24,183,173,.1); }
+    .publication-summary { margin-bottom: 14px; color: var(--ink-soft); font-size: .82rem; font-weight: 700; }
+    .publication-list { border-top: 1px solid var(--line); }
+    .publication-item { display: grid; grid-template-columns: 86px 1fr; gap: 28px; padding: 28px 0; border-bottom: 1px solid var(--line); }
+    .pub-year { padding-top: 2px; color: var(--cyan); font-family: var(--serif); font-size: 1.05rem; font-weight: 700; }
+    .pub-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 9px; }
+    .pub-meta span { color: #65798a; font-size: .72rem; font-weight: 820; letter-spacing: .06em; text-transform: uppercase; }
+    .pub-meta span + span::before { content: "/"; margin-right: 8px; color: #a6b5c0; }
+    .publication-item h3 { max-width: 900px; margin-bottom: 8px; font-size: 1.02rem; line-height: 1.48; }
+    .publication-item h3 a { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: color .2s ease, text-decoration-color .2s ease; }
+    .publication-item h3 a:hover { color: #087f79; text-decoration-color: currentColor; }
+    .publication-item p { margin-bottom: 0; color: var(--ink-soft); font-size: .87rem; line-height: 1.6; }
+    .publication-footer { display: flex; align-items: center; justify-content: center; gap: 14px; margin-top: 32px; }
+    .button-outline { border-color: var(--navy); background: #fff; color: var(--navy); cursor: pointer; }
+    .button-outline:hover { background: var(--navy); color: #fff; }
+    .no-results { padding: 32px 0; color: var(--ink-soft); text-align: center; }
+
+    .academic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .academic-panel { padding: 34px; border: 1px solid rgba(255,255,255,.11); border-radius: var(--radius); background: rgba(255,255,255,.045); }
+    .academic-panel h3 { margin-bottom: 28px; font-family: var(--serif); font-size: 1.7rem; font-weight: 500; }
+    .academic-entry { padding: 22px 0; border-top: 1px solid rgba(255,255,255,.11); }
+    .academic-entry:first-of-type { padding-top: 0; border-top: 0; }
+    .academic-date { margin-bottom: 5px; color: var(--cyan-bright); font-size: .76rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .academic-entry strong { display: block; margin-bottom: 6px; font-size: .98rem; }
+    .academic-entry p { margin-bottom: 0; color: #aebfcd; font-size: .88rem; line-height: 1.62; }
+
+    .skills-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; align-items: start; }
+    .skills-intro h2 { margin-bottom: 20px; font-family: var(--serif); font-size: clamp(2.3rem, 4vw, 4rem); font-weight: 500; letter-spacing: -.045em; }
+    .skills-intro p { color: var(--ink-soft); }
+    .skill-group { padding: 24px 0; border-top: 1px solid var(--line); }
+    .skill-group:first-child { padding-top: 0; border-top: 0; }
+    .skill-group h3 { margin-bottom: 14px; font-size: .86rem; letter-spacing: .07em; text-transform: uppercase; }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 9px; }
+    .skill-pills span { padding: .5rem .74rem; border: 1px solid var(--line); border-radius: 10px; background: var(--mist); color: #355066; font-size: .79rem; font-weight: 700; }
+
+    .contact { position: relative; overflow: hidden; }
+    .contact::before { content: ""; position: absolute; inset: 0; opacity: .11; background-image: radial-gradient(circle at 1px 1px, var(--cyan-bright) 1px, transparent 0); background-size: 28px 28px; }
+    .contact-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: 90px; align-items: end; }
+    .contact h2 { max-width: 650px; margin-bottom: 24px; font-family: var(--serif); font-size: clamp(2.7rem, 5vw, 5.2rem); font-weight: 500; letter-spacing: -.05em; }
+    .contact-copy > p { max-width: 630px; margin-bottom: 32px; color: #aebfcd; font-size: 1.05rem; }
+    .contact-list { display: grid; gap: 10px; }
+    .contact-link { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.12); color: #d9e4eb; font-size: .92rem; font-weight: 760; }
+    .contact-link span { color: #8197a9; font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .contact-link:hover { color: var(--cyan-bright); }
+    .site-footer { padding: 24px 0; border-top: 1px solid rgba(255,255,255,.1); background: var(--navy); color: #8197a9; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; font-size: .78rem; }
+    .footer-inner a:hover { color: var(--cyan-bright); }
+    .back-to-top { position: fixed; z-index: 50; right: 20px; bottom: 20px; display: grid; width: 46px; height: 46px; place-items: center; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; opacity: 0; background: var(--navy); color: #fff; box-shadow: var(--shadow-sm); pointer-events: none; transform: translateY(12px); transition: .2s ease; }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+    :focus-visible { outline: 3px solid rgba(93,228,211,.72); outline-offset: 4px; }
+
+    @media (max-width: 1040px) {
+      .site-nav { gap: 18px; }
+      .hero-grid { grid-template-columns: 1.1fr .9fr; gap: 46px; }
+      .hero h1 { font-size: clamp(3.2rem, 7vw, 5.4rem); }
+      .portrait-card { right: -8px; }
+      .research-grid, .projects-grid { grid-template-columns: 1fr 1fr; }
+      .contact-inner { gap: 48px; }
+    }
+
+    @media (max-width: 860px) {
+      .nav-toggle { display: block; }
+      .site-nav {
+        position: fixed;
+        inset: 78px 0 auto;
+        display: grid;
+        gap: 0;
+        padding: 12px 20px 26px;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+        background: rgba(7,24,41,.98);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-14px);
+        transition: .2s ease;
+      }
+      .site-nav.open { opacity: 1; visibility: visible; transform: translateY(0); }
+      .site-nav a { padding: 13px 8px; }
+      .site-nav a::after { display: none; }
+      .nav-cta { margin-top: 8px; text-align: center; }
+      .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+      .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .hero { padding-top: 128px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 58px; }
+      .hero-portrait { justify-self: start; width: min(76vw, 380px); }
+      .metrics { margin-top: 0; background: var(--navy); }
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .about-grid, .skills-layout, .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      .about-aside { position: static; }
+      .academic-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, var(--max)); }
+      .section { padding: 78px 0; }
+      .section-heading { margin-bottom: 34px; }
+      .hero { min-height: auto; padding: 120px 0 74px; }
+      .hero h1 { font-size: clamp(3rem, 15vw, 4.7rem); }
+      .hero-actions { display: grid; }
+      .button { width: 100%; }
+      .hero-portrait { width: calc(100% - 20px); }
+      .portrait-card { right: -8px; bottom: 18px; width: min(230px, 74%); }
+      .metrics-grid { grid-template-columns: 1fr; border-radius: 0; }
+      .metric { border-right: 0; border-bottom: 1px solid var(--line); }
+      .metric:last-child { border-bottom: 0; }
+      .focus-grid, .research-grid, .projects-grid { grid-template-columns: 1fr; }
+      .research-card { min-height: 250px; }
+      .timeline::before { left: 7px; }
+      .timeline-item { grid-template-columns: 1fr; gap: 10px; padding-left: 32px; }
+      .timeline-date::after { top: 6px; right: auto; left: -30px; }
+      .publication-tools { align-items: stretch; flex-direction: column; }
+      .publication-search { width: 100%; }
+      .publication-item { grid-template-columns: 1fr; gap: 8px; }
+      .publication-footer { flex-direction: column; }
+      .academic-panel { padding: 26px 22px; }
+      .contact-list { margin-top: 16px; }
+      .contact-link { align-items: flex-start; flex-direction: column; gap: 3px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+
+    @media print {
+      .site-header, .hero-actions, .hero-links, .metrics, .publication-tools, .publication-footer, .contact, .site-footer, .back-to-top { display: none !important; }
+      .hero { min-height: auto; padding: 30px 0; background: #fff; color: #000; }
+      .hero::before, .hero::after { display: none; }
+      .hero-grid { grid-template-columns: 1fr 180px; }
+      .hero h1, .hero-role { color: #000; }
+      .hero-intro { color: #333; }
+      .portrait-card { display: none; }
+      .portrait-frame { box-shadow: none; }
+      .section, .section-dark { padding: 36px 0; background: #fff; color: #000; }
+      .research-grid, .projects-grid { grid-template-columns: 1fr 1fr; }
+      .research-card, .academic-panel { border-color: #ccc; background: #fff; color: #000; }
+      .research-card p, .academic-entry p, .section-dark .section-heading p { color: #333; }
+      .publication-extra[hidden] { display: grid !important; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mohcin Mekhfioui",
+    "honorificPrefix": "Dr.",
+    "url": "https://mekhfioui.github.io/",
+    "image": "https://mekhfioui.github.io/assets/mohcin-mekhfioui.jpg",
+    "jobTitle": "Research and Development Engineer in Electronics and Embedded Systems",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Mohammed VI Polytechnic University"
+    },
+    "email": "mailto:mohcin.mekhfioui@um6p.ma",
+    "sameAs": [
+      "https://orcid.org/0000-0001-5836-1296",
+      "https://scholar.google.com/citations?user=MM7I5zAAAAAJ",
+      "https://www.linkedin.com/in/mohcinmekhfioui/",
+      "https://github.com/mekhfioui"
+    ],
+    "knowsAbout": ["Embedded systems", "Embedded artificial intelligence", "FPGA", "Biomedical signal processing", "Internet of Things", "Electronic design"]
   }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 17px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  a { color: var(--accent); text-decoration: none; }
-  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
-
-  h1, h2, h3 { font-family: 'Lora', serif; font-weight: 600; margin: 0; }
-
-  /* Nav */
-  nav {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(247, 248, 250, 0.92);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-inner {
-    max-width: var(--max); margin: 0 auto; padding: 16px 28px;
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 12px;
-  }
-  .nav-inner .brand { font-family: 'Lora', serif; font-weight: 600; font-size: 1.05rem; color: var(--ink); }
-  .nav-links { display: flex; gap: 22px; font-size: 0.92rem; }
-  .nav-links a { color: var(--ink-soft); }
-  .nav-links a:hover { color: var(--accent); }
-
-  /* Hero */
-  header.hero {
-    padding: 88px 0 64px;
-    opacity: 0;
-    animation: rise 0.7s ease-out forwards;
-  }
-  @keyframes rise {
-    from { opacity: 0; transform: translateY(14px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-inner {
-    display: flex; align-items: center; gap: 40px; flex-wrap: wrap;
-  }
-
-  #hero-photo { flex-shrink: 0; }
-  .photo-placeholder, #hero-photo img {
-    width: 132px; height: 132px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  .photo-placeholder {
-    display: flex; align-items: center; justify-content: center;
-    background: var(--accent);
-    color: #fff;
-    font-family: 'Lora', serif;
-    font-size: 2.2rem;
-    font-weight: 600;
-  }
-
-  .hero-text { flex: 1; min-width: 260px; }
-
-  h1.name {
-    font-size: clamp(2.1rem, 5vw, 2.8rem);
-    line-height: 1.1;
-    margin-bottom: 8px;
-  }
-
-  .role { font-size: 1.1rem; color: var(--accent-soft); font-weight: 500; margin-bottom: 16px; }
-
-  .tagline { max-width: 60ch; color: var(--ink-soft); margin-bottom: 22px; }
-
-  .hero-links { display: flex; gap: 18px; flex-wrap: wrap; font-size: 0.94rem; }
-  .hero-links a { border-bottom: 1px solid var(--line); padding-bottom: 2px; color: var(--ink); }
-  .hero-links a:hover { color: var(--accent); border-color: var(--accent); }
-
-  /* Sections */
-  section { padding: 56px 0; border-top: 1px solid var(--line); }
-
-  h2.section-title {
-    font-size: 1.55rem;
-    margin-bottom: 28px;
-  }
-
-  /* About */
-  #about p { max-width: 68ch; color: var(--ink-soft); font-size: 1.02rem; }
-
-  /* Experience / Education */
-  .entry {
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 18px;
-    padding: 20px 0;
-    border-top: 1px solid var(--line);
-  }
-  .entry:first-of-type { border-top: none; padding-top: 0; }
-
-  .entry .period { color: var(--ink-soft); font-size: 0.92rem; padding-top: 3px; }
-  .entry h3 { font-size: 1.08rem; margin-bottom: 4px; }
-  .entry .org { color: var(--accent); font-weight: 500; font-size: 0.95rem; }
-  .entry p { margin: 8px 0 0; color: var(--ink-soft); font-size: 0.96rem; }
-
-  @media (max-width: 560px) {
-    .entry { grid-template-columns: 1fr; gap: 4px; }
-  }
-
-  /* Skills */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 28px;
-  }
-  .skills-grid h3 { font-family: 'IBM Plex Sans', sans-serif; font-size: 0.92rem; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
-  .skills-grid p { margin: 0; color: var(--ink-soft); font-size: 0.96rem; }
-
-  /* Projects */
-  .project {
-    padding: 24px 0 24px 22px;
-    border-left: 3px solid var(--accent);
-    background: var(--panel);
-    border-radius: 0 8px 8px 0;
-    margin-bottom: 22px;
-  }
-  .project:last-child { margin-bottom: 0; }
-  .project h3 { font-size: 1.12rem; margin-bottom: 6px; }
-  .project p { margin: 0 0 14px; color: var(--ink-soft); font-size: 0.97rem; }
-
-  .tech { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
-  .tech span {
-    font-size: 0.8rem; color: var(--ink-soft);
-    border: 1px solid var(--line); padding: 3px 11px; border-radius: 20px;
-  }
-
-  .project .links a { margin-right: 18px; font-weight: 500; font-size: 0.93rem; }
-
-  /* Contact */
-  #contact { text-align: left; }
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-    margin-top: 8px;
-  }
-  .contact-item { border: 1px solid var(--line); border-radius: 8px; padding: 18px 20px; }
-  .contact-item .label { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 6px; }
-  .contact-item a, .contact-item span { font-size: 1rem; font-weight: 500; }
-
-  footer {
-    padding: 36px 0 56px;
-    color: var(--ink-soft);
-    font-size: 0.86rem;
-    text-align: center;
-  }
-</style>
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<nav>
-  <div class="nav-inner">
-    <span class="brand">Mohcin Mekhfioui</span>
-    <div class="nav-links">
-      <a href="#about">À propos</a>
-      <a href="#experience">Expérience</a>
-      <a href="#projects">Projets</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
-
-<div class="wrap">
-
-  <header class="hero">
-    <div class="hero-inner">
-      <div id="hero-photo">
-        <div class="photo-placeholder">MM</div>
-      </div>
-      <div class="hero-text">
-        <h1 class="name">Mohcin Mekhfioui</h1>
-        <p class="role">[Ton métier / titre professionnel]</p>
-        <p class="tagline">[Une phrase qui résume ton profil et ce que tu apportes. Ex : "J'accompagne les entreprises dans leurs projets de transformation digitale, de l'idée au déploiement."]</p>
-        <div class="hero-links">
-          <a href="mailto:[email protected]">[email protected]</a>
-          <a href="tel:+212000000000">+212 [ton numéro]</a>
-          <a href="https://linkedin.com/in/[ton-profil]">LinkedIn</a>
-          <a href="https://github.com/nmohcinn">GitHub</a>
-        </div>
-      </div>
+  <header class="site-header" id="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Mohcin Mekhfioui home">
+        <span class="brand-mark" aria-hidden="true">MM</span>
+        <span>Mohcin Mekhfioui</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#publications">Publications</a>
+        <a href="#academic">Academic</a>
+        <a class="nav-cta" href="#contact">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <section id="about">
-    <h2 class="section-title">À propos</h2>
-    <p>[Un paragraphe de présentation : ton parcours, ton domaine d'expertise, ce qui te motive dans ton métier, et ce que tu recherches aujourd'hui (poste, collaboration, opportunité...). 3 à 5 phrases suffisent pour rester impactant.]</p>
-  </section>
-
-  <section id="experience">
-    <h2 class="section-title">Expérience</h2>
-
-    <div class="entry">
-      <div class="period">[2023 — Aujourd'hui]</div>
-      <div>
-        <h3>[Intitulé du poste]</h3>
-        <div class="org">[Nom de l'entreprise]</div>
-        <p>[1 à 2 phrases sur tes missions et réalisations concrètes, si possible avec un résultat chiffré.]</p>
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="hero-eyebrow">Embedded Systems Researcher · UM6P</div>
+          <h1 id="hero-title">Mohcin <span>Mekhfioui</span></h1>
+          <p class="hero-role">PhD in Embedded Electronics · R&amp;D Engineer · Academic Instructor</p>
+          <p class="hero-intro">I design intelligent electronic systems at the intersection of embedded AI, real-time signal processing, FPGA acceleration, IoT and biomedical engineering.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#research">Explore my research <span aria-hidden="true">↓</span></a>
+            <a class="button button-ghost" href="assets/Mohcin_Mekhfioui_CV.pdf" download>Download CV <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-links" aria-label="Professional profiles">
+            <a href="https://scholar.google.com/citations?user=MM7I5zAAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            <a href="https://orcid.org/0000-0001-5836-1296" target="_blank" rel="noopener noreferrer">ORCID</a>
+            <a href="https://www.linkedin.com/in/mohcinmekhfioui/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/mekhfioui" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </div>
+        <div class="hero-portrait">
+          <div class="portrait-frame">
+            <img src="assets/mohcin-mekhfioui.jpg" alt="Portrait of Dr. Mohcin Mekhfioui" width="1204" height="1425">
+          </div>
+          <div class="portrait-card">
+            <span>Current position</span>
+            <strong>R&amp;D Engineer<br>Green Tech Institute, UM6P</strong>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <aside class="metrics" aria-label="Career highlights">
+      <div class="container metrics-grid">
+        <div class="metric"><strong>37</strong><span>Listed scientific works</span></div>
+        <div class="metric"><strong>2016</strong><span>Teaching since</span></div>
+        <div class="metric"><strong>PhD</strong><span>Embedded electronics</span></div>
+        <div class="metric"><strong>Edge AI</strong><span>FPGA · IoT · Biomedical</span></div>
+      </div>
+    </aside>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-aside">
+          <div class="section-kicker">About</div>
+          <h2 id="about-title">Engineering intelligence at the edge</h2>
+          <p>Benguerir, Morocco<br>Mohammed VI Polytechnic University</p>
+        </div>
+        <div class="about-copy">
+          <p>I am an embedded electronics researcher and R&amp;D engineer focused on turning advanced algorithms into efficient, reliable and practical hardware–software systems.</p>
+          <p>My work combines electronic system design, embedded programming and machine learning for applications in biomedical monitoring, assisted diagnosis, industrial systems and intelligent connected devices. Alongside research, I teach electronics and embedded systems, supervise student projects and support prototyping and makerspace laboratories.</p>
+          <div class="focus-grid">
+            <article class="focus-card">
+              <span class="focus-index">01</span>
+              <h3>Embedded AI &amp; FPGA</h3>
+              <p>Real-time deployment of neural networks and signal-processing algorithms on constrained edge platforms.</p>
+            </article>
+            <article class="focus-card">
+              <span class="focus-index">02</span>
+              <h3>Biomedical Engineering</h3>
+              <p>Intelligent monitoring and analysis of ECG, fetal ECG, EEG and physiological audio signals.</p>
+            </article>
+            <article class="focus-card">
+              <span class="focus-index">03</span>
+              <h3>Electronic Design</h3>
+              <p>PCB design, microcontrollers, digital electronics and complete embedded prototypes.</p>
+            </article>
+            <article class="focus-card">
+              <span class="focus-index">04</span>
+              <h3>IoT &amp; Connected Systems</h3>
+              <p>Sensor acquisition, communication protocols, remote monitoring and edge–cloud architectures.</p>
+            </article>
+          </div>
+          <div class="tag-list" aria-label="Research interests">
+            <span class="tag">Embedded systems</span><span class="tag">Deep learning</span><span class="tag">Real-time signal processing</span><span class="tag">FPGA</span><span class="tag">IoT</span><span class="tag">Information security</span><span class="tag">Biomedical signals</span><span class="tag">Robotics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="research" aria-labelledby="research-title">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">Research</div>
+          <h2 id="research-title">From algorithms to deployable systems</h2>
+          <p>My research connects intelligent models with the electronic platforms that make them useful in real-world, real-time environments.</p>
+        </div>
+        <div class="research-grid">
+          <article class="research-card">
+            <div class="research-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9h6v6H9zM9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4m14-6h4m-4 6h4"/></svg>
+            </div>
+            <h3>Edge AI &amp; Hardware Acceleration</h3>
+            <p>CNN deployment, FPGA-based inference, embedded machine learning and hardware–software co-design for low-latency applications.</p>
+          </article>
+          <article class="research-card">
+            <div class="research-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 12h4l2-6 4 12 2-6h6"/><path d="M12 21C6.5 17.8 3 14.7 3 10.5A4.5 4.5 0 0 1 12 9a4.5 4.5 0 0 1 9 1.5c0 4.2-3.5 7.3-9 10.5z" opacity=".45"/></svg>
+            </div>
+            <h3>Biomedical Signal Intelligence</h3>
+            <p>Blind source separation, fetal ECG extraction, arrhythmia detection, EEG stress analysis and embedded health-monitoring devices.</p>
+          </article>
+          <article class="research-card">
+            <div class="research-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 18h.01M8.5 15a5 5 0 0 1 7 0M5.5 12a9 9 0 0 1 13 0M2.5 9a13 13 0 0 1 19 0"/><rect x="9" y="18" width="6" height="4" rx="2"/></svg>
+            </div>
+            <h3>IoT &amp; Intelligent Electronics</h3>
+            <p>Connected sensing, remote supervision, digital and analog electronics, PCB development and robust embedded communication.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">Experience</div>
+          <h2 id="experience-title">Research, engineering and prototyping</h2>
+          <p>A career built around practical electronics, scientific research and the development of learning environments for future engineers.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">2024 — Present</div>
+            <div class="timeline-content">
+              <h3>R&amp;D Engineer in Electronics and Embedded Systems</h3>
+              <div class="timeline-org">Green Tech Institute · Mohammed VI Polytechnic University</div>
+              <p>Responsible for embedded-systems, prototyping and makerspace laboratories; electronic board development; practical teaching activities; research publication; technical purchasing and supervision of students, doctoral candidates and researchers.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">2017 — 2021</div>
+            <div class="timeline-content">
+              <h3>Co-founder and Electronics R&amp;D Engineer</h3>
+              <div class="timeline-org">3GENUIS · Kenitra</div>
+              <p>Project studies, 3D design, embedded-electronics prototyping and programming of electronic boards against technical specifications.</p>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">2015</div>
+            <div class="timeline-content">
+              <h3>Master’s Research Internship</h3>
+              <div class="timeline-org">CNESTEN · Rabat</div>
+              <p>Designed and implemented a wireless PIG-scanner for inspecting underground pipelines using radioactive tracers.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">Selected projects</div>
+          <h2 id="projects-title">Prototypes that connect research and practice</h2>
+          <p>Representative engineering work across intelligent hardware, fabrication, sensing and real-time processing.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card"><div class="project-number">01</div><h3>Embedded Biomedical Monitoring</h3><p>Real-time platforms for fetal ECG extraction, arrhythmia analysis and physiological signal monitoring.</p><div class="project-tags"><span>Biomedical</span><span>Edge AI</span><span>Signal processing</span></div></article>
+          <article class="project-card"><div class="project-number">02</div><h3>FPGA Vision and Classification</h3><p>Hardware implementation of face recognition, voice classification and intelligent physical-access systems.</p><div class="project-tags"><span>FPGA</span><span>CNN</span><span>Real time</span></div></article>
+          <article class="project-card"><div class="project-number">03</div><h3>Connected Weather Station</h3><p>Raspberry Pi-based remote weather monitoring with sensor acquisition and networked supervision.</p><div class="project-tags"><span>IoT</span><span>Raspberry Pi</span><span>Sensors</span></div></article>
+          <article class="project-card"><div class="project-number">04</div><h3>Digital Fabrication Systems</h3><p>Autonomous 3D printer, PCB CNC machine and electronic-board pick-and-place prototypes.</p><div class="project-tags"><span>3D printing</span><span>CNC</span><span>Mechatronics</span></div></article>
+          <article class="project-card"><div class="project-number">05</div><h3>Robotics and Object Tracking</h3><p>Remote-controlled robots and Raspberry Pi robotic-arm systems for visual object tracking.</p><div class="project-tags"><span>Robotics</span><span>Vision</span><span>Control</span></div></article>
+          <article class="project-card"><div class="project-number">06</div><h3>Custom Electronic Platforms</h3><p>PCB design for acquisition and processing, STM32 conversion systems, solar tracking and FPGA–microcontroller communication.</p><div class="project-tags"><span>PCB</span><span>STM32</span><span>Embedded C</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="publications" aria-labelledby="publications-title">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">Publications</div>
+          <h2 id="publications-title">Scientific contributions</h2>
+          <p>Recent and selected work in embedded AI, biomedical engineering, FPGA systems, renewable energy and signal processing.</p>
+        </div>
+        <div class="publication-tools">
+          <div class="filter-group" role="group" aria-label="Filter publications by year">
+            <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-button" type="button" data-filter="2026" aria-pressed="false">2026</button>
+            <button class="filter-button" type="button" data-filter="2025" aria-pressed="false">2025</button>
+            <button class="filter-button" type="button" data-filter="2024" aria-pressed="false">2024</button>
+            <button class="filter-button" type="button" data-filter="earlier" aria-pressed="false">Earlier</button>
+          </div>
+          <label class="publication-search">
+            <span class="sr-only">Search publications</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input id="publication-search" type="search" placeholder="Search titles or venues">
+          </label>
+        </div>
+        <div class="publication-summary" id="publication-summary" aria-live="polite">8 featured publications</div>
+        <div class="publication-list" id="publication-list">
+          <article class="publication-item" data-year="2026" data-featured="true"><div class="pub-year">2026</div><div><div class="pub-meta"><span>Journal article</span><span>Applied Sciences and Innovations</span></div><h3>Machine Learning Operations on ZYNQ FPGA Board for Real-Time Face Recognition</h3><p>B. Kouach, M. Mekhfioui and R. Elgouri</p></div></article>
+          <article class="publication-item" data-year="2025" data-featured="true"><div class="pub-year">2025</div><div><div class="pub-meta"><span>Book chapter</span><span>December 2025</span></div><h3>Phase Sequence Synchronization in Three-Phase Inverters</h3><p>A. Satif, M. Mekhfioui and R. Elgouri</p></div></article>
+          <article class="publication-item" data-year="2025" data-featured="true"><div class="pub-year">2025</div><div><div class="pub-meta"><span>Conference paper</span><span>October 2025</span></div><h3>Implementing Machine Learning Models in a Kubernetes Cluster for a Smart Monitoring System</h3><p>B. Kouach, M. Mekhfioui, A. El Mrabet and R. Elgouri</p></div></article>
+          <article class="publication-item" data-year="2025" data-featured="true"><div class="pub-year">2025</div><div><div class="pub-meta"><span>Journal article</span><span>Results in Engineering</span></div><h3>Real-Time Fetal Arrhythmia Detection Using Deep Learning on an Embedded fECG Monitoring System</h3><p>M. Mekhfioui, M. Bouksaim, N. El Bazi et al., and A. Chebak</p></div></article>
+          <article class="publication-item" data-year="2025" data-featured="true"><div class="pub-year">2025</div><div><div class="pub-meta"><span>Journal article</span><span>Solar</span></div><h3><a href="https://www.mdpi.com/2673-9941/5/3/44" target="_blank" rel="noopener noreferrer">A Comprehensive Decade-Long Review of Advanced MPPT Algorithms for Enhanced Photovoltaic Efficiency ↗</a></h3><p>M. Bouksaim, M. Mekhfioui and M. N. Srifi</p></div></article>
+          <article class="publication-item" data-year="2025" data-featured="true"><div class="pub-year">2025</div><div><div class="pub-meta"><span>Journal article</span><span>Information</span></div><h3><a href="https://www.mdpi.com/2078-2489/16/4/322" target="_blank" rel="noopener noreferrer">Optimized Digital Watermarking for Robust Information Security in Embedded Systems ↗</a></h3><p>M. Mekhfioui, N. El Bazi, O. Laayati et al., and A. Chebak</p></div></article>
+          <article class="publication-item" data-year="2025" data-featured="true"><div class="pub-year">2025</div><div><div class="pub-meta"><span>Journal article</span><span>Technologies</span></div><h3><a href="https://www.mdpi.com/2227-7080/13/4/130" target="_blank" rel="noopener noreferrer">Development of a Baby Cry Identification System Using a Raspberry Pi-Based Embedded System and Machine Learning ↗</a></h3><p>M. Mekhfioui, W. Fadel, F.-E. Hammouch et al., and A. Chebak</p></div></article>
+          <article class="publication-item" data-year="2024" data-featured="true"><div class="pub-year">2024</div><div><div class="pub-meta"><span>Journal article</span><span>Bioengineering</span></div><h3><a href="https://www.mdpi.com/2306-5354/11/5/512" target="_blank" rel="noopener noreferrer">The Development and Implementation of Innovative Blind Source Separation Techniques for Real-Time Extraction and Analysis of Fetal and Maternal Electrocardiogram Signals ↗</a></h3><p>M. Mekhfioui, A. Benahmed, A. Chebak et al., and L. Hlou</p></div></article>
+
+          <article class="publication-item publication-extra" data-year="2025"><div class="pub-year">2025</div><div><div class="pub-meta"><span>Journal article</span><span>Results in Engineering</span></div><h3>Metaheuristic-Optimized Forecasting in a Smart Edge–Fog–Cloud Energy Management Framework: An Industrial Mining Case Study</h3><p>O. Laayati, H. El Hadraoui, A. El Maghraoui et al., and A. Chebak</p></div></article>
+          <article class="publication-item publication-extra" data-year="2025"><div class="pub-year">2025</div><div><div class="pub-meta"><span>Journal article</span><span>Scientific African</span></div><h3>Advanced Techniques for Maximizing Photovoltaic Power: A Systematic Literature Review</h3><p>A. Satif, M. Mekhfioui and R. Elgouri</p></div></article>
+          <article class="publication-item publication-extra" data-year="2025"><div class="pub-year">2025</div><div><div class="pub-meta"><span>Journal article</span><span>ETASR</span></div><h3><a href="https://etasr.com/index.php/ETASR/article/view/10352" target="_blank" rel="noopener noreferrer">FPGA-Based Implementation of Convolutional Neural Networks for Enhanced Physical Security in Data Center Door Access Systems ↗</a></h3><p>B. Kouach, M. Mekhfioui, A. El Mrabet and R. Elgouri</p></div></article>
+          <article class="publication-item publication-extra" data-year="2025"><div class="pub-year">2025</div><div><div class="pub-meta"><span>Conference paper</span><span>August 2025</span></div><h3>Integrating a Six-Axis Robotic Arm and Fused Deposition Modeling Extruder for an Enhanced Robotic Additive Manufacturing Process</h3><p>F.-E. Hammouch, M. Mekhfioui, R. Majdoubi et al., and A. Chebak</p></div></article>
+          <article class="publication-item publication-extra" data-year="2025"><div class="pub-year">2025</div><div><div class="pub-meta"><span>Journal article</span><span>JESA</span></div><h3>Evolution of AI in Grid-Connected Renewable Energy Systems: A Systematic Literature Mapping</h3><p>A. Satif, M. Mekhfioui and R. Elgouri</p></div></article>
+          <article class="publication-item publication-extra" data-year="2025"><div class="pub-year">2025</div><div><div class="pub-meta"><span>Conference paper</span><span>May 2025</span></div><h3>Implementation of Deep Learning Models on an FPGA Board for Voice Classification</h3><p>B. Kouach, M. Mekhfioui and R. Elgouri</p></div></article>
+          <article class="publication-item publication-extra" data-year="2025"><div class="pub-year">2025</div><div><div class="pub-meta"><span>Book chapter</span><span>April 2025</span></div><h3>Development and Implementation of a Blind Source Separation Algorithm to Extract the Fetal Electrocardiographic Signal in Real-Time</h3><p>M. Mekhfioui, A. Benahmed, A. Chebak et al., and L. Hlou</p></div></article>
+          <article class="publication-item publication-extra" data-year="2025"><div class="pub-year">2025</div><div><div class="pub-meta"><span>Journal article</span><span>Technologies</span></div><h3><a href="https://www.mdpi.com/2227-7080/13/3/120" target="_blank" rel="noopener noreferrer">Predicting the Temperature of a Permanent Magnet Synchronous Motor: A Comparative Study of Artificial Neural Network Algorithms ↗</a></h3><p>N. El Bazi, N. Guennouni, M. Mekhfioui et al., and M. Mabrouki</p></div></article>
+          <article class="publication-item publication-extra" data-year="2024"><div class="pub-year">2024</div><div><div class="pub-meta"><span>Conference paper</span><span>November 2024</span></div><h3>A Novel Method for 3D Printing Materials with the UR5 Robotic Arm</h3><p>F.-E. Hammouch, M. Mekhfioui, M. Bouchouirbat et al., and O. Mouhib</p></div></article>
+          <article class="publication-item publication-extra" data-year="2024"><div class="pub-year">2024</div><div><div class="pub-meta"><span>Conference paper</span><span>November 2024</span></div><h3>Development of a Novel Method for Stress Detection and Classification Using EEG and Neural Networks</h3><p>M. Mekhfioui, F.-E. Hammouch, A. Satif et al., and A. Chebak</p></div></article>
+          <article class="publication-item publication-extra" data-year="2024"><div class="pub-year">2024</div><div><div class="pub-meta"><span>Journal article</span><span>JESA</span></div><h3>Enhancing Grid Stability and Efficiency: Cost-Effective Hardware Implementation for Advanced Control of Grid-Connected PV Systems</h3><p>A. Satif, L. Hlou, M. Mekhfioui and R. Elgouri</p></div></article>
+          <article class="publication-item publication-extra" data-year="2024"><div class="pub-year">2024</div><div><div class="pub-meta"><span>Conference presentation</span><span>June 2024</span></div><h3>Intelligent Security System for Access Doors Based on the Implementation of CNN on FPGA Board</h3><p>B. Kouach, M. Mekhfioui and R. Elgouri</p></div></article>
+          <article class="publication-item publication-extra" data-year="2024"><div class="pub-year">2024</div><div><div class="pub-meta"><span>Book chapter</span><span>August 2024</span></div><h3>Advancing Synchronization for Grid-Integrated Renewable Energy Systems: A Comprehensive Overview and Comparative Assessment</h3><p>A. Satif, M. Mekhfioui, L. Hlou and R. Elgouri</p></div></article>
+          <article class="publication-item publication-extra" data-year="2024"><div class="pub-year">2024</div><div><div class="pub-meta"><span>Journal article</span><span>ASEAN Engineering Journal</span></div><h3>FPGA Implementation of Adaptive Zero-Tracking Algorithm for Real-Time DOA Estimation Using a Linear Antenna Array</h3><p>A. Benahmed, M. Mekhfioui, E.-M. Hamzaoui and Z. Guennoun</p></div></article>
+          <article class="publication-item publication-extra" data-year="2022"><div class="pub-year">2022</div><div><div class="pub-meta"><span>Journal article</span><span>IJETAE</span></div><h3>FPGA-Based Hardware Co-Simulation Implementation for Real-Time Image Blind Separation Using ICA Algorithms</h3><p>A. Benahmed, M. Mekhfioui and Z. Guennoun</p></div></article>
+          <article class="publication-item publication-extra" data-year="2021"><div class="pub-year">2021</div><div><div class="pub-meta"><span>Journal article</span><span>Designs</span></div><h3>Design and Implementation of Modified INC, Conventional INC, and Fuzzy Logic Controllers Applied to a PV System under Variable Weather Conditions</h3><p>M. Bouksaim, M. Mekhfioui and M. N. Srifi</p></div></article>
+          <article class="publication-item publication-extra" data-year="2020"><div class="pub-year">2020</div><div><div class="pub-meta"><span>Conference paper</span><span>June 2020</span></div><h3>Hardware Implementation of Blind Source Separation Algorithm Using ZYBO Z7 &amp; Xilinx System Generator</h3><p>M. Mekhfioui, A. Satif, O. Mouhib et al., and L. Hlou</p></div></article>
+          <article class="publication-item publication-extra" data-year="2020"><div class="pub-year">2020</div><div><div class="pub-meta"><span>Journal article</span><span>IJSTR</span></div><h3>Real-Time Implementation of a New Efficient Algorithm for Source Separation Using Matlab &amp; Arduino Due</h3><p>M. Mekhfioui, R. Elgouri, A. Satif and L. Hlou</p></div></article>
+          <article class="publication-item publication-extra" data-year="2020"><div class="pub-year">2020</div><div><div class="pub-meta"><span>Journal article</span><span>IJSTR</span></div><h3>Implementation of Least Mean Square Algorithm Using Arduino &amp; Simulink</h3><p>M. Mekhfioui, R. Elgouri, A. Satif et al., and L. Hlou</p></div></article>
+          <article class="publication-item publication-extra" data-year="2020"><div class="pub-year">2020</div><div><div class="pub-meta"><span>Journal article</span><span>March 2020</span></div><h3>Grid-Connected Photovoltaic Systems Synchronization Algorithms under Disturbances: A Low-Cost Hardware Implementation Using Arduino DUE</h3><p>A. Satif, L. Hlou, D. Hamad et al., and R. Elgouri</p></div></article>
+          <article class="publication-item publication-extra" data-year="2020"><div class="pub-year">2020</div><div><div class="pub-meta"><span>Journal article</span><span>March 2020</span></div><h3>A Comparative Approach of Blind Source Separation with Arduino Due and TMS320C6713</h3><p>M. Mekhfioui, R. Elgouri, A. Satif and L. Hlou</p></div></article>
+          <article class="publication-item publication-extra" data-year="2020"><div class="pub-year">2020</div><div><div class="pub-meta"><span>Journal article</span><span>IJETER</span></div><h3>Real-Time Hardware Co-Simulation for Blind Image Separation Algorithm Using ZYNQ 7000 &amp; Xilinx System Generator</h3><p>M. Mekhfioui, R. Elgouri, A. Satif and L. Hlou</p></div></article>
+          <article class="publication-item publication-extra" data-year="2020"><div class="pub-year">2020</div><div><div class="pub-meta"><span>Journal article</span><span>IJITEE</span></div><h3>Synchronization Algorithms for Grid-Connected Photovoltaic Systems under Grid Disturbances</h3><p>A. Satif, L. Hlou, M. Mekhfioui et al., and R. Elgouri</p></div></article>
+          <article class="publication-item publication-extra" data-year="2019"><div class="pub-year">2019</div><div><div class="pub-meta"><span>Journal article</span><span>Journal of Engineering and Applied Sciences</span></div><h3>A Comparative Study and Implementation of Blind Source Separation Algorithm Using MATLAB and TMS320c6713 DSK</h3><p>M. Mekhfioui, R. Elgouri, A. Satif and L. Hlou</p></div></article>
+          <article class="publication-item publication-extra" data-year="2019"><div class="pub-year">2019</div><div><div class="pub-meta"><span>Journal article</span><span>IJITEE</span></div><h3>Arduino Due Implementation of an Algorithm for Blind Source Separation Using Matlab Simulink</h3><p>M. Mekhfioui, R. Elgouri, A. Satif and L. Hlou</p></div></article>
+          <article class="publication-item publication-extra" data-year="2018"><div class="pub-year">2018</div><div><div class="pub-meta"><span>Conference paper</span><span>November 2018</span></div><h3>FPGA Implementation of an Algorithm for the Cancellation of the Noise Generated by the Engine of a Vehicle</h3><p>M. Mekhfioui, R. Elgouri, A. Benahmed and L. Hlou</p></div></article>
+          <article class="publication-item publication-extra" data-year="2018"><div class="pub-year">2018</div><div><div class="pub-meta"><span>Conference paper</span><span>July 2018</span></div><h3>État de l’art sur la séparation aveugle de sources en temps réel : Algorithme et application</h3><p>M. Mekhfioui</p></div></article>
+          <article class="publication-item publication-extra" data-year="2018"><div class="pub-year">2018</div><div><div class="pub-meta"><span>Conference paper</span><span>May 2018</span></div><h3>Analysis of Radioactive Signals Based on Blind Source Separation</h3><p>M. Mekhfioui</p></div></article>
+          <article class="publication-item publication-extra" data-year="2018"><div class="pub-year">2018</div><div><div class="pub-meta"><span>Poster</span><span>March 2018</span></div><h3>Extraction of the Fetal Heart Rate in Real Time Based on the Blind Source Separation</h3><p>M. Mekhfioui, A. Benahmed, E.-M. Hamzaoui and L. Hlou</p></div></article>
+        </div>
+        <p class="no-results" id="no-results" hidden>No publication matches your search.</p>
+        <div class="publication-footer">
+          <button class="button button-outline" id="toggle-publications" type="button" aria-expanded="false">View all publications</button>
+          <a class="button button-outline" href="https://scholar.google.com/citations?user=MM7I5zAAAAAJ" target="_blank" rel="noopener noreferrer">Open Google Scholar ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="academic" aria-labelledby="academic-title">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">Academic profile</div>
+          <h2 id="academic-title">Education and teaching</h2>
+          <p>Advanced training in embedded electronics combined with sustained teaching across electronics, FPGA, programming and mechanical design.</p>
+        </div>
+        <div class="academic-grid">
+          <div class="academic-panel">
+            <h3>Education</h3>
+            <article class="academic-entry"><div class="academic-date">2016 — 2021</div><strong>PhD in Physics and Applications</strong><p>Embedded Electronics, Ibn Tofail University. Highest honours with jury congratulations. Thesis on real-time blind source separation algorithms for embedded biomedical applications.</p></article>
+            <article class="academic-entry"><div class="academic-date">2013 — 2015</div><strong>Specialised Master’s in Microelectronics</strong><p>Faculty of Sciences, Ibn Tofail University, Kenitra.</p></article>
+            <article class="academic-entry"><div class="academic-date">2009 — 2013</div><strong>Bachelor’s in Physical Sciences</strong><p>Electronics and Telecommunications track, Ibn Tofail University.</p></article>
+          </div>
+          <div class="academic-panel">
+            <h3>Teaching</h3>
+            <article class="academic-entry"><div class="academic-date">2024 — Present</div><strong>Green Tech Institute, UM6P</strong><p>Embedded Systems; Analog and Digital Electronics; lectures, tutorials and practical laboratory sessions.</p></article>
+            <article class="academic-entry"><div class="academic-date">2021 — 2023</div><strong>ENSA and EST, Ibn Tofail University</strong><p>Analog and Digital Electronics; CATIA V5 mechanical design; telecommunications and automated systems programmes.</p></article>
+            <article class="academic-entry"><div class="academic-date">2016 — 2019</div><strong>Faculty of Sciences and ENSA, Ibn Tofail University</strong><p>VHDL, FPGA, Arduino, embedded programming, CMOS layout, analog electronics and geometric optics practical work.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container skills-layout">
+        <div class="skills-intro">
+          <div class="section-kicker">Technical expertise</div>
+          <h2 id="skills-title">A complete embedded engineering stack</h2>
+          <p>From circuit design and firmware to machine learning models, communication protocols and complete laboratory prototypes.</p>
+        </div>
+        <div class="skill-groups">
+          <section class="skill-group"><h3>Platforms and hardware</h3><div class="skill-pills"><span>FPGA</span><span>DSP</span><span>STM32</span><span>ESP32</span><span>PIC</span><span>Arduino</span><span>Raspberry Pi</span><span>PCB design</span><span>CMOS</span></div></section>
+          <section class="skill-group"><h3>Software and languages</h3><div class="skill-pills"><span>C</span><span>C++</span><span>Python</span><span>VHDL</span><span>MATLAB/Simulink</span><span>SQL</span><span>Java</span><span>C#</span><span>Ladder</span><span>Grafcet</span></div></section>
+          <section class="skill-group"><h3>Engineering tools</h3><div class="skill-pills"><span>Vivado</span><span>Xilinx System Generator</span><span>Altium Designer</span><span>OrCAD</span><span>Cadence</span><span>Proteus</span><span>Quartus</span><span>ModelSim</span><span>LabVIEW</span><span>CATIA V5</span><span>SolidWorks</span></div></section>
+          <section class="skill-group"><h3>Communication and systems</h3><div class="skill-pills"><span>UART</span><span>SPI</span><span>I²C</span><span>CAN</span><span>MODBUS</span><span>MQTT</span><span>TCP/IP</span><span>Edge–fog–cloud</span></div></section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-inner">
+        <div class="contact-copy">
+          <div class="section-kicker">Contact</div>
+          <h2 id="contact-title">Let’s advance an idea from research to reality.</h2>
+          <p>I am open to scientific collaboration, embedded-system research, academic projects and applied R&amp;D opportunities.</p>
+          <a class="button button-primary" href="mailto:mohcin.mekhfioui@um6p.ma">Email me <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="contact-list">
+          <a class="contact-link" href="mailto:mohcin.mekhfioui@um6p.ma"><span>Email</span>mohcin.mekhfioui@um6p.ma</a>
+          <a class="contact-link" href="https://orcid.org/0000-0001-5836-1296" target="_blank" rel="noopener noreferrer"><span>ORCID</span>0000-0001-5836-1296</a>
+          <a class="contact-link" href="https://scholar.google.com/citations?user=MM7I5zAAAAAJ" target="_blank" rel="noopener noreferrer"><span>Scholar</span>Google Scholar profile ↗</a>
+          <a class="contact-link" href="https://www.linkedin.com/in/mohcinmekhfioui/" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span>mohcinmekhfioui ↗</a>
+          <a class="contact-link" href="assets/Mohcin_Mekhfioui_CV.pdf" download><span>Curriculum vitae</span>Download PDF ↓</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Mohcin Mekhfioui</span>
+      <span>Embedded systems · Artificial intelligence · Biomedical engineering</span>
+      <a href="#home">Back to top ↑</a>
     </div>
+  </footer>
 
-    <div class="entry">
-      <div class="period">[2021 — 2023]</div>
-      <div>
-        <h3>[Intitulé du poste]</h3>
-        <div class="org">[Nom de l'entreprise]</div>
-        <p>[1 à 2 phrases sur tes missions et réalisations concrètes.]</p>
-      </div>
-    </div>
-  </section>
+  <a class="back-to-top" id="back-to-top" href="#home" aria-label="Back to top">↑</a>
 
-  <section id="education">
-    <h2 class="section-title">Formation</h2>
+  <script>
+    (() => {
+      const header = document.getElementById('site-header');
+      const nav = document.getElementById('site-nav');
+      const navToggle = document.querySelector('.nav-toggle');
+      const backToTop = document.getElementById('back-to-top');
+      const navLinks = [...nav.querySelectorAll('a[href^="#"]')];
 
-    <div class="entry">
-      <div class="period">[Année — Année]</div>
-      <div>
-        <h3>[Diplôme obtenu]</h3>
-        <div class="org">[École / Université]</div>
-        <p>[Spécialité, mention, ou projet marquant de ta formation.]</p>
-      </div>
-    </div>
-  </section>
+      const closeMenu = () => {
+        nav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Open navigation');
+        document.body.classList.remove('menu-open');
+      };
 
-  <section id="skills">
-    <h2 class="section-title">Compétences</h2>
-    <div class="skills-grid">
-      <div>
-        <h3>Techniques</h3>
-        <p>[Compétences techniques principales]</p>
-      </div>
-      <div>
-        <h3>Outils</h3>
-        <p>[Logiciels, outils, plateformes maîtrisés]</p>
-      </div>
-      <div>
-        <h3>Langues</h3>
-        <p>[Arabe, Français, Anglais...]</p>
-      </div>
-    </div>
-  </section>
+      navToggle.addEventListener('click', () => {
+        const open = navToggle.getAttribute('aria-expanded') === 'true';
+        nav.classList.toggle('open', !open);
+        navToggle.setAttribute('aria-expanded', String(!open));
+        navToggle.setAttribute('aria-label', open ? 'Open navigation' : 'Close navigation');
+        document.body.classList.toggle('menu-open', !open);
+      });
+      navLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-  <section id="projects">
-    <h2 class="section-title">Projets</h2>
+      const onScroll = () => {
+        header.classList.toggle('scrolled', window.scrollY > 16);
+        backToTop.classList.toggle('visible', window.scrollY > 700);
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
 
-    <article class="project">
-      <h3>[Nom du projet]</h3>
-      <p>[Le problème résolu et ton rôle, en 1-2 phrases.]</p>
-      <div class="tech">
-        <span>[Techno 1]</span>
-        <span>[Techno 2]</span>
-        <span>[Techno 3]</span>
-      </div>
-      <div class="links">
-        <a href="#">Voir le projet</a>
-      </div>
-    </article>
+      const sections = [...document.querySelectorAll('main section[id]')];
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+          });
+        }, { rootMargin: '-38% 0px -55% 0px', threshold: 0 });
+        sections.forEach(section => observer.observe(section));
+      }
 
-    <article class="project">
-      <h3>[Nom du projet]</h3>
-      <p>[Le problème résolu et ton rôle, en 1-2 phrases.]</p>
-      <div class="tech">
-        <span>[Techno 1]</span>
-        <span>[Techno 2]</span>
-      </div>
-      <div class="links">
-        <a href="#">Voir le projet</a>
-      </div>
-    </article>
-  </section>
+      const publications = [...document.querySelectorAll('.publication-item')];
+      const filterButtons = [...document.querySelectorAll('.filter-button')];
+      const searchInput = document.getElementById('publication-search');
+      const toggleButton = document.getElementById('toggle-publications');
+      const summary = document.getElementById('publication-summary');
+      const noResults = document.getElementById('no-results');
+      let activeFilter = 'all';
+      let showAll = false;
 
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="contact-grid">
-      <div class="contact-item">
-        <div class="label">Email</div>
-        <a href="mailto:[email protected]">[email protected]</a>
-      </div>
-      <div class="contact-item">
-        <div class="label">Téléphone</div>
-        <span>+212 [ton numéro]</span>
-      </div>
-      <div class="contact-item">
-        <div class="label">Localisation</div>
-        <span>[Ville, Pays]</span>
-      </div>
-    </div>
-  </section>
+      const updatePublications = () => {
+        const query = searchInput.value.trim().toLowerCase();
+        let visibleCount = 0;
+        publications.forEach(item => {
+          const year = Number(item.dataset.year);
+          const yearMatch = activeFilter === 'all' || item.dataset.year === activeFilter || (activeFilter === 'earlier' && year < 2024);
+          const queryMatch = !query || item.textContent.toLowerCase().includes(query);
+          const scopeMatch = showAll || query || activeFilter !== 'all' || item.dataset.featured === 'true';
+          const visible = yearMatch && queryMatch && scopeMatch;
+          item.hidden = !visible;
+          if (visible) visibleCount += 1;
+        });
+        const filtered = Boolean(query || activeFilter !== 'all');
+        summary.textContent = filtered ? `${visibleCount} publication${visibleCount === 1 ? '' : 's'} found` : (showAll ? `${publications.length} publications listed` : '8 featured publications');
+        noResults.hidden = visibleCount !== 0;
+        toggleButton.hidden = filtered;
+        toggleButton.textContent = showAll ? 'Show featured publications' : 'View all publications';
+        toggleButton.setAttribute('aria-expanded', String(showAll));
+      };
 
-</div>
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          activeFilter = button.dataset.filter;
+          filterButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+          updatePublications();
+        });
+      });
+      searchInput.addEventListener('input', updatePublications);
+      toggleButton.addEventListener('click', () => { showAll = !showAll; updatePublications(); });
+      updatePublications();
 
-<footer>
-  © <span id="year"></span> Mohcin Mekhfioui
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
