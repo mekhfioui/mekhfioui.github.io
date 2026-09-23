@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ton Nom — CV & Portfolio</title>
+
+<!--
+  COMMENT PERSONNALISER CE FICHIER
+  =================================
+  1. Cherche et remplace tous les textes entre crochets [comme ceci].
+  2. Section "PROJETS" : duplique un bloc <article class="project"> pour ajouter un projet.
+  3. Section "EXPÉRIENCE" : duplique un bloc <div class="entry"> pour ajouter une expérience.
+  4. Couleurs : modifie les variables dans :root ci-dessous si tu veux changer la palette.
+  5. Liens de contact : remplace les href="#" par tes vrais liens (mailto, LinkedIn, GitHub...).
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #FAF7F1;
+    --panel: #F1EDE3;
+    --ink: #1C2130;
+    --ink-soft: #565C70;
+    --accent: #1F6F5C;
+    --accent-warm: #C98A2C;
+    --line: #DEDACD;
+    --max: 760px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header.hero {
+    padding: 72px 0 40px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    line-height: 1.05;
+    margin: 0 0 6px;
+  }
+
+  .role {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.92rem;
+    text-align: right;
+  }
+
+  .contacts a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .contacts a:hover { color: var(--accent); border-color: var(--accent); }
+
+  .tagline {
+    margin-top: 28px;
+    max-width: 58ch;
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+  }
+
+  /* Sections */
+  section { padding: 48px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 0 0 24px;
+  }
+
+  /* Experience */
+  .entry {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+  }
+  .entry:first-of-type { border-top: none; }
+
+  .entry .period { color: var(--ink-soft); font-size: 0.92rem; padding-top: 2px; }
+
+  .entry h3 { margin: 0 0 4px; font-size: 1.05rem; font-weight: 600; }
+  .entry .org { color: var(--accent); font-weight: 500; font-size: 0.95rem; }
+  .entry p { margin: 8px 0 0; color: var(--ink-soft); font-size: 0.96rem; }
+
+  @media (max-width: 560px) {
+    .entry { grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  /* Projects */
+  .project {
+    padding: 22px 0 22px 20px;
+    border-left: 3px solid var(--accent);
+    margin-bottom: 20px;
+    background: var(--panel);
+    border-radius: 0 6px 6px 0;
+  }
+  .project:last-child { margin-bottom: 0; }
+
+  .project h3 { margin: 0 0 6px; font-size: 1.1rem; }
+  .project p { margin: 0 0 12px; color: var(--ink-soft); font-size: 0.96rem; }
+
+  .tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .tech span {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .project .links a { margin-right: 16px; font-size: 0.92rem; font-weight: 500; }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+  }
+  .skills-grid h3 {
+    font-size: 0.85rem;
+    text-transform: none;
+    color: var(--ink-soft);
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .skills-grid p { margin: 0; font-size: 0.96rem; }
+
+  footer {
+    padding: 40px 0 60px;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>[Ton Prénom] [Ton Nom]</h1>
+        <p class="role">[Ton métier — ex : Développeuse Web / Data Analyst / Designer]</p>
+      </div>
+      <div class="contacts">
+        <a href="mailto:[email protected]">[email protected]</a>
+        <a href="https://linkedin.com/in/[ton-profil]">LinkedIn</a>
+        <a href="https://github.com/mekhfioui">GitHub</a>
+      </div>
+    </div>
+    <p class="tagline">
+      [Une ou deux phrases qui résument qui tu es et ce que tu fais. Ex : "Je conçois des interfaces web claires et j'aime transformer des idées complexes en outils simples à utiliser."]
+    </p>
+  </header>
+
+  <section id="experience">
+    <h2>Expérience</h2>
+
+    <div class="entry">
+      <div class="period">[2023 — Aujourd'hui]</div>
+      <div>
+        <h3>[Intitulé du poste]</h3>
+        <div class="org">[Nom de l'entreprise]</div>
+        <p>[Une ou deux lignes sur tes missions et réalisations concrètes.]</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="period">[2021 — 2023]</div>
+      <div>
+        <h3>[Intitulé du poste]</h3>
+        <div class="org">[Nom de l'entreprise]</div>
+        <p>[Une ou deux lignes sur tes missions et réalisations concrètes.]</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="period">[Année — Année]</div>
+      <div>
+        <h3>[Formation / Diplôme]</h3>
+        <div class="org">[École / Université]</div>
+        <p>[Précision si utile : spécialité, mention...]</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projets</h2>
+
+    <article class="project">
+      <h3>[Nom du projet]</h3>
+      <p>[Ce que fait le projet et le problème qu'il résout, en 1-2 phrases.]</p>
+      <div class="tech">
+        <span>[Techno 1]</span>
+        <span>[Techno 2]</span>
+        <span>[Techno 3]</span>
+      </div>
+      <div class="links">
+        <a href="#">Voir le code</a>
+        <a href="#">Voir la démo</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <h3>[Nom du projet]</h3>
+      <p>[Ce que fait le projet et le problème qu'il résout, en 1-2 phrases.]</p>
+      <div class="tech">
+        <span>[Techno 1]</span>
+        <span>[Techno 2]</span>
+      </div>
+      <div class="links">
+        <a href="#">Voir le code</a>
+        <a href="#">Voir la démo</a>
+      </div>
+    </article>
+
+  </section>
+
+  <section id="skills">
+    <h2>Compétences</h2>
+    <div class="skills-grid">
+      <div>
+        <h3>Langages</h3>
+        <p>[HTML, CSS, JavaScript, Python...]</p>
+      </div>
+      <div>
+        <h3>Outils</h3>
+        <p>[Git, Figma, VS Code...]</p>
+      </div>
+      <div>
+        <h3>Autres</h3>
+        <p>[Langues parlées, méthodes de travail...]</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> [Ton Prénom] [Ton Nom] — Site hébergé sur GitHub Pages
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
